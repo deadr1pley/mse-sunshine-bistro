@@ -1,0 +1,1 @@
+web: gunicorn sunshine_core.wsgi
