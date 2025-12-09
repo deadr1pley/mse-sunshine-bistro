@@ -1,6 +1,14 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-    <h1>Welcome to MSE Sunshine Bistro</h1>
-    <p> This is my home page of my restaurant project.</p>
+    <div class="text-center">
+        
+        <h1>Welcome to MSE Sunshine Bistro</h1>
+        <img src="{% static 'images/sunshine.JPG' %}" class="img-fluid mb-4" alt="Picture of a sunset">
+
+        <p class="lead">Book online and come over to enjoy good food and the amazing view we have.</p>
+
+        <a href="{% url 'booking' %}" class="btn-primary mt-3">Book a Table</a>
+    </div>
 {% endblock %}

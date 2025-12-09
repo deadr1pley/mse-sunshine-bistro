@@ -1,5 +1,18 @@
 body {
-    background-color: #fafafa;
+    background-color: #f8f9fa;
+}
+
+h1, h2 {
+    color: #2c3e50;
+}
+
+ul li {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+img {
+    border-radius: 12px;
 }
 
 .navbar-brand {
