@@ -127,6 +127,22 @@ In short:
 
 ## Deployment
 
+## Live Site
+
+The live version of the project can be accessed here:
+[MSE Sunshine Bistro – Live Site](https://mse-sunshine-bistro-1e8e5aa9f2b2.herokuapp.com/)
+
+### Deployment Steps
+1. Log in to GitHub and open your repository.
+2. Choose the project you want to deploy.
+3. Go to **Settings** > **Pages**.
+4. Under **Source**, select **Deploy from a branch**.
+5. Choose the `main` branch and the `/(root)` folder.
+6. Click **Save**.
+7. GitHub Pages will build and then publish the site (this may take a few moments).
+8. Once finished, go back to your repository and navigate to the **Deployments** section.
+9. Click on **github-pages** to open the live deployed site.
+
 ### Deployment to Heroku
 
 1. Create a new Heroku app.
@@ -143,5 +159,19 @@ In short:
 
 ## Credits
 
-- Content and code inspired by Code Institute's Django walkthrough projects.
-- Bootstrap documentation for layout and styling examples.
+### Media
+
+- The hero image on the home page was taken by the project author.
+
+### Content
+
+- All text content was written by the project author.
+
+### Acknowledgements
+
+- Code Institute for the project inspiration and learning material.
+
+### Code & Inspiration
+
+- Project structure and logic inspired by Code Institute's Django walkthrough projects.
+- Bootstrap documentation used as a reference for layout and styling examples.
