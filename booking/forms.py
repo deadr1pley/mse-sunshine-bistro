@@ -12,6 +12,10 @@ class BookingForm(forms.ModelForm):
         model = Booking
         fields = ["name", "email", "date", "time", "guests", "message"]
         widgets = {
-            "date": DateInput(),
-            "time": TimeInput(),
+            "name": forms.TextInput(attrs={"class": "form-control"}),
+            "email": forms.EmailInput(attrs={"class": "form-control"}),
+            "date": DateInput(attrs={"class": "form-control"}),
+            "time": TimeInput(attrs={"class": "form-control"}),
+            "guests": forms.NumberInput(attrs={"class": "form-control"}),
+            "message": forms.Textarea(attrs={"class": "form-control"}),
         }
