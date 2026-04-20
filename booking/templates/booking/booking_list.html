@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="mb-4 text-center">All Bookings</h1>
+
+{% if bookings %}
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Guests</th>
+          <th>Message</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for booking in bookings %}
+          <tr>
+            <td>{{ booking.name }}</td>
+            <td>{{ booking.email }}</td>
+            <td>{{ booking.date }}</td>
+            <td>{{ booking.time }}</td>
+            <td>{{ booking.guests }}</td>
+            <td>{{ booking.message }}</td>
+            <td>{{ booking.status }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% else %}
+  <p>No bookings found.</p>
+{% endif %}
+{% endblock %}

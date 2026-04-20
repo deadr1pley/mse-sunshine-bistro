@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .forms import BookingForm
+from .models import Booking
 
 # Create your views here.
 def booking(request):
@@ -20,4 +21,12 @@ def booking(request):
         request,
         "booking/booking.html",
         {"form": form}
+    )
+
+def booking_list(request):
+    bookings = Booking.objects.all().order_by("-date", "-time")
+    return render(
+        request,
+        "booking/booking_list.html",
+        {"bookings": bookings},
     )
