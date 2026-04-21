@@ -2,6 +2,8 @@
 
 This document describes the testing carried out for the **MSE Sunshine Bistro** Django project.
 
+The application now supports full CRUD functionality in the frontend, allowing users to create, read, update, and delete bookings.
+
 ---
 
 ## 1. Manual Testing
@@ -100,6 +102,14 @@ The booking form is a core feature and was tested with valid input.
 Result: ✅ Pass  
 
 (Invalid-input error screenshots were not captured due to time constraints, but the form was checked to prevent empty required fields.)
+
+### Booking CRUD Functionality
+
+| Test | Expected Result | Outcome |
+|------|-----------------|---------|
+| View bookings list | All bookings displayed in table | Pass |
+| Edit booking | Booking updated successfully | Pass |
+| Delete booking | Booking removed from list | Pass |
 
 ---
 
