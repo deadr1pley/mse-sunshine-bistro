@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from .forms import BookingForm
 from .models import Booking
 
@@ -29,4 +29,22 @@ def booking_list(request):
         request,
         "booking/booking_list.html",
         {"bookings": bookings},
+    )
+
+def booking_edit(request, booking_id):
+    booking = get_object_or_404(Booking, id=booking_id)
+
+    if request.method == "POST":
+        form = BookingForm(request.POST, instance=booking)
+        if form.is_valid():
+            form.save()
+            return redirect("booking_list")
+
+    else:
+        form = BookingForm(instance=booking)
+
+    return render(
+        request,
+        "booking/booking_edit.html",
+        {"form": form, "booking": booking},
     )
