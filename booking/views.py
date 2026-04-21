@@ -48,3 +48,16 @@ def booking_edit(request, booking_id):
         "booking/booking_edit.html",
         {"form": form, "booking": booking},
     )
+
+def booking_delete(request, booking_id):
+    booking = get_object_or_404(Booking, id=booking_id)
+
+    if request.method == "POST":
+        booking.delete()
+        return redirect("booking_list")
+
+    return render(
+        request,
+        "booking/booking_confirm_delete.html",
+        {"booking": booking},
+    )
