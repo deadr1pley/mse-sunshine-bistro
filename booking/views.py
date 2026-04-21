@@ -7,8 +7,7 @@ def booking(request):
     if request.method == "POST":
         form = BookingForm(request.POST)
         if form.is_valid():
-            form.save() #saving the booking in the data base
-
+            form.save() #Save the booking in the database
             return render(
                 request,
                 "booking/booking.html",
