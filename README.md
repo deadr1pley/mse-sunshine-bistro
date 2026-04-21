@@ -1,5 +1,14 @@
 # mse-sunshine-bistro
 
+---
+
+## Live Site
+
+The live version of the project can be accessed here:  
+[MSE Sunshine Bistro – Live Site](https://mse-sunshine-bistro-1e8e5aa9f2b2.herokuapp.com/)
+
+---
+
 ## Features
 
 ### Navigation Bar
@@ -10,6 +19,9 @@
   - About
   - Menu
   - Book a Table
+  - View Bookings
+
+---
 
 ### Home Page
 
@@ -17,14 +29,31 @@
 - Short introduction to the restaurant.
 - Clear call-to-action button linking to the booking page.
 
+---
+
 ### About Page
 
 - Brief information about the restaurant and its atmosphere.
+
+---
 
 ### Menu Page
 
 - Static menu listing starters, main courses, desserts and drinks.
 - Content is presented in a clean, centered layout.
+
+---
+
+### Booking System (CRUD)
+
+The application now supports full CRUD functionality for bookings in the frontend:
+
+- **Create** – Users can submit a booking through the form  
+- **Read** – Users can view all bookings in a list view  
+- **Update** – Users can edit existing bookings  
+- **Delete** – Users can delete bookings  
+
+---
 
 ### Booking Page
 
@@ -43,12 +72,16 @@
   - The booking is saved to the database
   - A success message is shown to the user
 
+---
+
 ### Admin Panel
 
 - Django admin enables the site owner to:
   - View bookings
   - Edit booking details
   - Update booking status
+
+---
 
 ### Footer
 
@@ -58,10 +91,10 @@
 
 ## Future Features
 
-- Allow logged-in users to view and manage their own bookings.
-- Email confirmation when a booking is submitted or confirmed.
-- Database-driven menu so that staff can update dishes via the admin.
-- Table management (number of tables, capacity, fully booked time slots).
+- Allow logged-in users to manage their own bookings.
+- Email confirmation for bookings.
+- Dynamic menu controlled via admin panel.
+- Table availability system.
 
 ---
 
@@ -75,104 +108,114 @@ The main model in this project is the `Booking` model.
 - `time` – booking time (`TimeField`)
 - `guests` – number of guests (`IntegerField`)
 - `message` – optional message (`TextField`, blank allowed)
-- `status` – status of the booking (e.g. pending / confirmed / cancelled)
-
-The model is managed through the Django admin interface.
+- `status` – booking status (pending / confirmed / cancelled)
 
 ---
 
 ## Technologies Used
 
-- **Languages**
-  - Python
-  - HTML5
-  - CSS3
-
-- **Frameworks & Libraries**
-  - Django
-  - Bootstrap 5
-
-- **Database**
-  - SQLite (development)
-  - Heroku Postgres (if configured for deployment)
-
-- **Version Control & Deployment**
-  - Git & GitHub
-  - Heroku
+- Python
+- Django
+- HTML5
+- CSS3
+- Bootstrap 5
+- PostgreSQL (Heroku)
+- Gunicorn
+- WhiteNoise
 
 ---
 
 ## Testing
 
-A separate `TESTING.md` file contains detailed information about:
+Detailed testing is documented in `TESTING.md`.
 
-- Manual testing of all views and user stories
-- Form validation tests (valid and invalid input)
-- Admin functionality
-- Lighthouse and HTML validation
+Testing includes:
 
-In short:
-
-- All navigation links were tested to ensure they lead to the correct pages.
-- The booking form was tested with:
-  - Valid data
-  - Dates in the past
-  - Too few / too many guests
-  - Missing required fields
-- The admin panel was tested to:
+- Navigation testing
+- Form validation (valid and invalid input)
+- Full CRUD testing:
+  - Create booking
   - View bookings
-  - Update booking status
+  - Edit booking
+  - Delete booking
+- Admin functionality
+- Lighthouse testing
+- Responsiveness testing
 
 ---
 
 ## Deployment
 
+### Heroku Deployment
 
-## Live Site
-
-The live version of the project can be accessed here:
-[MSE Sunshine Bistro – Live Site](https://mse-sunshine-bistro-1e8e5aa9f2b2.herokuapp.com/)
-
-### Deployment Steps
-1. Log in to GitHub and open your repository.
-2. Choose the project you want to deploy.
-3. Go to **Settings** > **Pages**.
-4. Under **Source**, select **Deploy from a branch**.
-5. Choose the `main` branch and the `/(root)` folder.
-6. Click **Save**.
-7. GitHub Pages will build and then publish the site (this may take a few moments).
-8. Once finished, go back to your repository and navigate to the **Deployments** section.
-9. Click on **github-pages** to open the live deployed site.
-
-### Deployment to Heroku
+The project was deployed to Heroku using the following steps:
 
 1. Create a new Heroku app.
 2. Connect the app to the GitHub repository.
-3. Set config vars such as:
+3. Set Config Vars:
    - `SECRET_KEY`
-   - `DISABLE_COLLECTSTATIC` (used during development; removed once static files are configured)
-4. Choose the `main` branch to deploy from.
-5. Click **Deploy Branch** to trigger a build.
+   - `DATABASE_URL`
+4. Ensure required files exist:
+   - `requirements.txt`
+   - `Procfile`
+5. Install required packages:
+   - `gunicorn`
+   - `whitenoise`
+6. Configure static files in `settings.py`.
+7. Deploy the `main` branch via Heroku.
+8. Run migrations on Heroku:
 
-> When static files are fully configured, `DISABLE_COLLECTSTATIC` is removed so that `python manage.py collectstatic` runs during the build.
+    python manage.py migrate
+
+9. Create a superuser:
+
+    python manage.py createsuperuser
+
+The application is now live and fully functional.
+
+---
+
+## Running the Project Locally
+
+1. Clone the repository:
+
+    git clone https://github.com/deadr1pley/mse-sunshine-bistro.git
+    cd mse-sunshine-bistro
+
+2. Create and activate a virtual environment.
+
+3. Install dependencies:
+
+    pip install -r requirements.txt
+
+4. Create an `env.py` file and add required environment variables.
+
+5. Run migrations:
+
+    python manage.py makemigrations
+    python manage.py migrate
+
+6. Create a superuser:
+
+    python manage.py createsuperuser
+
+7. Run the development server:
+
+    python manage.py runserver
 
 ---
 
 ## Credits
 
 ### Media
-
 - The hero image on the home page was taken by the project author.
 
 ### Content
-
 - All text content was written by the project author.
 
 ### Acknowledgements
-
-- Code Institute for the project inspiration and learning material.
+- Code Institute for guidance and project inspiration.
 
 ### Code & Inspiration
-
-- Project structure and logic inspired by Code Institute's Django walkthrough projects.
-- Bootstrap documentation used as a reference for layout and styling examples.
+- Inspired by Code Institute Django walkthrough projects
+- Bootstrap documentation for layout and styling
